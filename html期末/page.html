@@ -27,13 +27,94 @@
 				 "https://blogger.googleusercontent.com/img/a/AVvXsEhulPz57CyHo40owS9sVA5OjaUO3TNOmmPnTnqwbGZwUyttUcpnkbYkqwqQu8-EaE7dwQnCHu4_94YVhevuHuhGEJShrAB3y9eR8wx_qsuECMcjDfaxUlrktbTKuPYfLGDyfT4fq-jaeDtQdUc4XOGC8W-qO7278eeJz-Ia4MGf7wHic55dGmL12n7ZcVCI",
 				 "https://blogger.googleusercontent.com/img/a/AVvXsEhf30reitcM3od8398BmJ5nQsyjNLYe0eI9X2BcojPZkVjWpJyC0j3Kwu4QJhr6mIS9GrQFVzoros3_md86N3--R-k9DtoHn5gJtOgmOb19r68-eN7EcMpNsyMaPqq5OrQ1cYM81RupnF5yBaOCK1l67KxI7SuT2QN3A9DwVdY_GH3mv6auMEIycgQHTjwp=w493-h713",
 				 "https://blogger.googleusercontent.com/img/a/AVvXsEhLdiRilwKp7CwwFJfUwYFtDvkoIkp4E-fMc_UC5y2Bsz2qPrbqawFRYicAF94VMmQrff9BbfWu_Vfrat354oCs8_iT6fdHmFFOgRfAZTxS26AFL1jxVD_k_RlyoN4yIn3v88Y_S5NEyef5aEQ0WMH_b3JnjjqHjt5RFwKGoTDMfeX28aHsigdnqTBfUTmQ=w494-h714",
-				 "https://blogger.googleusercontent.com/img/a/AVvXsEisOOywQKm21GW8i2FAWwox4zT7LXQ5GjhQmk0iElnFQub4nCKXduK7WpXocc0MDD0EKjFmQIjX0c4Yq6BQLuwQOzQwAO4Z5fpW_kYuiwEbtu9fYiW6OwKxNwCP8E1_kf9jyNDVVLk5S6nBeygQanfPqdvbJX3W3tc9_c4U7_N8v4GaBJOJ9KEFWOvbVy_l=w494-h714",
+		
+			     "https://blogger.googleusercontent.com/img/a/AVvXsEisOOywQKm21GW8i2FAWwox4zT7LXQ5GjhQmk0iElnFQub4nCKXduK7WpXocc0MDD0EKjFmQIjX0c4Yq6BQLuwQOzQwAO4Z5fpW_kYuiwEbtu9fYiW6OwKxNwCP8E1_kf9jyNDVVLk5S6nBeygQanfPqdvbJX3W3tc9_c4U7_N8v4GaBJOJ9KEFWOvbVy_l=w494-h714",
 				 "https://blogger.googleusercontent.com/img/a/AVvXsEjAD-DsqllTYu_awBLt4G3X8V0Ci9N-SoOTcoXUyA-rCu_9KElV2OwLQbB_3lKzXe08f3HKtyq-MxPqBnasxsvvwLnDrDKiaA2uV5_T8Wd_EwH4BeVnDrzgQaSEfTP4dfIqS-Gj1yxe5q1c0aLeTn-9aluhm8Rlc7srLj6T-9mk7sZajSRo1oDblPhM60tv=w505-h730",
 				 "https://blogger.googleusercontent.com/img/a/AVvXsEhHFigY0mXERyAn5CvELPOQe0aGYy0baFL_Bm4KGwdHM0rtBnB5cc-MVdTKcCB6rblTzp-Xxt6orbKyfKithIZF85e0QSvI_PY75aKtAt2ikA7mjNj_F3BAKv1GJFFeZBPkUTzPWDTDDBQP5K33YN_8j4-_G2e3a3hE7Aa3xRvxBpDu24Ob6I52bWb-wyxj=w505-h730"
 				]
 			y = ["反逆的罪寶 蛇眼","黑魔女 迪亞貝斯塔爾","蛇眼 梣木","蛇眼 橡木","蛇眼 樺木","蛇眼的炎龍","狩獵罪寶的惡魔","死之罪寶 蝙蝠","蛇眼神殿 蛇眼","原罪寶 蛇眼","背叛的罪寶 森狼","凝視一切的蛇眼","蛇眼的炎燐","蛇眼追走劇"]
 			
-		
+		<!-- 利用DataTable呈現表格 https://datatables.net/manual/installation -->
+	<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />	  
+	<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>  
+  
+  
+    <!-- 利用Google Visualization讀取Google Sheet https://www.labnol.org/code/google-sheet-d3js-visualization-200608 -->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+	
+	<script>
+	
+    // https://developers.google.com/chart/interactive/docs/quick_start
+	// Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.	
+	google.charts.setOnLoadCallback(init);
+
+	function init() {
+	  // 這個例子使用的試算表是 https://docs.google.com/spreadsheets/d/1KDOGFsYii0ugEJdjSg5pi7VxqrWumadqhn1dt1Le8c0/copy
+	  // 將上述試算表另存副本後，你要在自己的雲端硬碟將該試算表設定成[知道連結的使用者都能查看]。
+	  // 然後讓程式讀取 https://docs.google.com/spreadsheets/d/瀏覽器網址列上的網址擷取序號部分/gviz/tq?sheet=工作表名稱
+	  // 也就是將下列的 1KDOGFsYii0ugEJdjSg5pi7VxqrWumadqhn1dt1Le8c0 更換成自己的檔案序號，以及最後部分指讀取哪個工作表。
+	  var url =
+		'https://docs.google.com/spreadsheets/d/170e3w_hKp8MS63hYcbFbpOaR5Bn5WafcSbNokcxpO5g/gviz/tq?headers=0&sheet=卡片資訊';
+	  var query = new google.visualization.Query(url);
+	  query.setQuery('select *');
+	  query.send(processSheetsData);
+	}	
+	
+	function processSheetsData(response) {
+	  var data = response.getDataTable();
+	  var columns = data.getNumberOfColumns();
+	  var rows = data.getNumberOfRows();
+
+	  // 表格以DataTable呈現設定class="display order-column"
+	  var str = `<table id="myTable" class="display order-column">
+					<thead>
+						<tr>`;
+	  // 此迴圈取得試算表第一列的各欄位標題加以安排呈現
+	  for (var c=0 ; c<columns ; c++) {	
+		  if (data.getFormattedValue(0,c)=='') columns=c; //可能試算表後面有多欄空白，就要將columns數值訂為到此為止
+		  else if (data.getFormattedValue(0,c)!='*')
+			 str +=			'<th>' + data.getFormattedValue(0,c) + '</th>';			
+	  }  
+	  // 後續的Tag...........
+		  str += `		</tr>
+					</thead>
+					<tbody>`;
+
+	  
+	  for (var r=1 ; r<rows ; r++) {
+		  str += '<tr>';
+		  for (c=0 ; c<columns ; c++) {	
+			  if (data.getFormattedValue(0,c)=='*') { 
+				 if (data.getFormattedValue(r,c)!="") {
+                    str += '<td><a href="' + data.getFormattedValue(r,c) + '" target="_blank">' + data.getFormattedValue(r,c+1) + '</a></td>';
+				    c++;
+                 }
+			  } 
+			  else
+				 str += '<td>' + data.getFormattedValue(r,c) + '</td>';	
+		  }
+		  str += '</tr>';
+	  }	  
+	  str += '</tbody></table>';
+	  
+	  document.getElementById("demo").innerHTML = str;
+
+	  
+	  $(document).ready( function () {
+		  $('#myTable').DataTable({
+		    // Language Plug-in for Chinese-traditional https://datatables.net/plug-ins/i18n/Chinese-traditional.html
+		  	language: {url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/zh-HANT.json'},
+			// Disable ordering in the table https://datatables.net/reference/option/ordering
+			ordering: false
+	  	  });
+	  } );	  
+	  
+	}
+	
+	</script>
 			function f1()
 			{
 			var s = '';
